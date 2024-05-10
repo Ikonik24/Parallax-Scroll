@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parallax Scroll Effect</title>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+    }
+    .parallax-container {
+        height: 100%;
+        background-image: url('background.jpg'); /* Replace 'background.jpg' with your image */
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+        overflow: hidden;
+        position: relative;
+    }
+    .parallax-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: white;
+    }
+    .parallax-content h1 {
+        font-size: 3em;
+        margin-bottom: 20px;
+    }
+    .parallax-content p {
+        font-size: 1.5em;
+    }
+</style>
+</head>
+<body>
+<div class="parallax-container">
+    <div class="parallax-content">
+        <h1>Welcome to Parallax Scroll</h1>
+        <p>This is a simple example of a parallax scroll effect.</p>
+    </div>
+</div>
+<div style="height: 1500px; background-color: #f2f2f2;">
+    <!-- Content below the parallax section -->
+</div>
+<script>
+    window.onscroll = function() {
+        var parallaxContainer = document.querySelector('.parallax-container');
+        var scrolled = window.pageYOffset;
+        parallaxContainer.style.backgroundPositionY = (scrolled * 0.5) + 'px';
+    }
+</script>
+</body>
+</html>
